@@ -1,0 +1,18 @@
+{
+  "name": "momence",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "devserver": "cd server && npm run dev",
+    "start": "concurrent \"npm run client\" \"npm run server\"",
+    "dev": "concurrent \"npm run client\" \"npm run devserver\""
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
