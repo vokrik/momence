@@ -1,6 +1,6 @@
 //Importing Libraries
 require("dotenv").config();
-const app = require(".")
+import app from "."
 
 /*
   ===============================================================
@@ -8,7 +8,7 @@ const app = require(".")
 running on the local macchine we are asking the app to use 3000 as the port number
   ===============================================================
 */
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 //Listing to the app and running it on PORT 5000
 app.listen(PORT, async () => {
