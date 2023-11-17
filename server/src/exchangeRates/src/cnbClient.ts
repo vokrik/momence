@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {ExternalResourceUnavailableError} from "./ExternalResourceUnavailableError";
+import ExternalResourceUnavailableError from "./errors/ExternalResourceUnavailableError";
 
 async function getRates(): Promise<string> {
     try {
