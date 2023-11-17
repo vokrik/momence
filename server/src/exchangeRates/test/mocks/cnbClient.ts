@@ -2,6 +2,7 @@ export const successResponseMock = `16 Nov 2023 #222
 Country|Currency|Amount|Code|Rate
 Australia|dollar|1|AUD|14.613
 USA|dollar|1|USD|22.547
+Israel|new shekel|1|ILS|5.974
 `
 
 export const missingDateMock = `Country|Currency|Amount|Code|Rate

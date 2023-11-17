@@ -34,7 +34,7 @@ export async function getExchangeRates() {
  * Australia|dollar|1|AUD|14
  */
 function isLineValid(line: string): boolean {
-    return /^([a-zA-Z]+)\|([a-zA-Z]+)\|(\d+)\|([a-zA-Z]+)\|(\d+([.,]\d+)?)$/.test(line)
+    return /^(\w+(\s+\w+)*)\|(\w+(\s+\w+)*)\|(\d+)\|(\w+(\s+\w+)*)\|(\d+([.,]\d+)?)$/.test(line)
 }
 
 function isHeaderRowsValid(first2Lines: Array<String>): boolean {

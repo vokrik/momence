@@ -99,7 +99,15 @@ describe('exchangeRatesService', () => {
                     "country": "USA",
                     "currency": "dollar",
                     "rate": 22.547
-                }])
+                },
+                {
+                    "amount": 1,
+                    "code": "ILS",
+                    "country": "Israel",
+                    "currency": "new shekel",
+                    "rate": 5.974,
+                }
+            ])
         })
 
         it.each(testCases)('$name', async ({cnbResponse}) => {
