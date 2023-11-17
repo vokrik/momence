@@ -1,2 +1,2 @@
 export * from './src/router'
-export * from './src/errors/ExternalResourceUnavailableError'
+export {default as ExternalResourceUnavailableError} from './src/errors/ExternalResourceUnavailableError'
