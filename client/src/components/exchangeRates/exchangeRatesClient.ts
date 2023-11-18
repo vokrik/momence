@@ -1,5 +1,5 @@
 
 export const fetchRates = async () => {
-    const response = await fetch("http://localhost:8080/exchange-rates");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/exchange-rates`);
     return response.json()
 }

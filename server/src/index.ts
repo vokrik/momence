@@ -18,11 +18,11 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json())
 app.use(
-    "/api-docs",
+    "/api/api-docs",
     swaggerUi.serve,
     swaggerUi.setup(YAML.load("apidoc.yml"))
 );
-app.use('/exchange-rates/',exchangeRatesRouter)
+app.use('/api/exchange-rates/',exchangeRatesRouter)
 
 
 app.use(errorHandlerMiddleware)
