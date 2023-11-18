@@ -2,17 +2,25 @@
   "name": "momence",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "client": "cd client && npm start",
-    "server": "cd server && npm build && npm start",
+    "client": "npm run build-client && cd client && npm start",
+    "server": "npm run build-server && cd server && npm start",
     "devserver": "cd server && npm run dev",
+    "build": "npm run build-client && npm run build-server",
+    "build-client": "cd client && npm install && npm run build",
+    "build-server": "cd server && npm install && npm run build",
     "start": "concurrent \"npm run client\" \"npm run server\"",
     "dev": "concurrent \"npm run client\" \"npm run devserver\""
   },
   "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
     "concurrently": "^1.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@netlify/functions": "^2.4.0",
+    "serverless-http": "^3.2.0"
+  }
 }

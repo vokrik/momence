@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv'
 import errorHandlerMiddleware from "./errorHandlerMiddleware";
 import express from 'express'
 import swaggerUi from "swagger-ui-express";
-
+import path from 'path'
 import cors from 'cors'
 import helmet from 'helmet'
 
@@ -20,7 +20,7 @@ app.use(express.json())
 app.use(
     "/api/api-docs",
     swaggerUi.serve,
-    swaggerUi.setup(YAML.load("apidoc.yml"))
+    swaggerUi.setup(YAML.load(path.join(__dirname, '/apidoc.yml')))
 );
 app.use('/api/exchange-rates/',exchangeRatesRouter)
 
