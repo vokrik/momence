@@ -22,6 +22,8 @@ npm start
 in the root folder
 
 ## Comments
+For the benefit of the user, I've decided to put the most used currencies on top of the list and sort the rest by alphabet.
+
 Because of the CORS, I've had to also include a server in this project that proxies the calls to the CNB. Instead of building just a proxy, I've decided to build an adapter that defines its own API. I find this approach better, 
 because if CNB API changed in the future, we would be able to update the adapter without changing the API of our server. Right now, it's not a super critical feature, however if we started 
 using the API by multiple other services, it would be a good idea to have a stable API.
@@ -47,4 +49,5 @@ I've added a few tests:
 For backend, I've added unit and integration tests. You can run them by running `npm test` in the `server` folder.
 
 For frontend, I've added just unit tests, because for an app of this size, the integration tests might be too much. To run them, run `npm test` in the `client` folder.
-
+I'm missing few tests for the Page.tsx, Table.tsx and App.tsx - I would test there that the components render and also that the loading and error fallbacks are rendered appropriately
+(Ran out of available time I set aside for this task, if you find it important, I can add it later)
