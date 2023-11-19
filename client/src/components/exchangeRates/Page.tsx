@@ -12,7 +12,7 @@ import {useSuspenseQuery} from "@tanstack/react-query";
 import React from "react";
 import {Convertor} from "./Convertor";
 import Table from "./Table";
-import {getRates} from "./exchangeRatesService";
+import {getRates} from "./model/exchangeRatesService";
 
 const theme = createTheme()
 
@@ -20,7 +20,6 @@ export function Page() {
 
     const {data} = useSuspenseQuery({queryKey: ['exchangeRates'], queryFn: getRates})
     return (<div>
-
         <ThemeProvider theme={theme}>
             <Container component="main" fixed maxWidth={"xs"}>
                 <CssBaseline/>

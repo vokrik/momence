@@ -1,29 +1,28 @@
 //Importing project dependancies that we installed earlier
-import * as dotenv from 'dotenv'
+import * as dotenv from "dotenv";
 import errorHandlerMiddleware from "./errorHandlerMiddleware";
-import express from 'express'
+import express from "express";
 import swaggerUi from "swagger-ui-express";
-import path from 'path'
-import cors from 'cors'
-import helmet from 'helmet'
+import path from "path";
+import cors from "cors";
+import helmet from "helmet";
 
-import {router as exchangeRatesRouter} from './exchangeRates'
-import YAML from 'yamljs'
+import { router as exchangeRatesRouter } from "./exchangeRates";
+import YAML from "yamljs";
 
-dotenv.config()
+dotenv.config();
 
 const app = express();
 
 app.use(helmet());
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 // app.use(
 //     "/api/api-docs",
 //     swaggerUi.serve,
 //     swaggerUi.setup(YAML.load(path.join(__dirname, '/apidoc.yml')))
 // );
-app.use('/api/exchange-rates/',exchangeRatesRouter)
+app.use("/api/exchange-rates/", exchangeRatesRouter);
 
-
-app.use(errorHandlerMiddleware)
-export default app
+app.use(errorHandlerMiddleware);
+export default app;

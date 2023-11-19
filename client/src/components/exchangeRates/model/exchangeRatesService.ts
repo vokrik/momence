@@ -18,9 +18,9 @@ export type PrioritizedRates = {
     other: Array<ExchangeRateInfo>
 }
 
-export const getRates = async (): Promise<PrioritizedRates>=> {
-    const allRates: Array<ExchangeRateInfo> = (await fetchRates()).rates
+export const getRates = async (): Promise<Array<ExchangeRateInfo>> => (await fetchRates()).rates
 
+export const splitByPopularity = (allRates: Array<ExchangeRateInfo>): PrioritizedRates => {
     const popular = allRates.filter((rate) => POPULAR_CODES.includes(rate.code)).sort((a, b) => {
         return POPULAR_CODES.indexOf(a.code) - POPULAR_CODES.indexOf(b.code)
     })
@@ -34,7 +34,6 @@ export const getRates = async (): Promise<PrioritizedRates>=> {
         other
     }
 }
-
 export const convertToCurrency = (amountCzk: number, exchangeRate: ExchangeRate ): number => {
     return (amountCzk / exchangeRate.rate ) * exchangeRate.amount
 }

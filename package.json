@@ -13,9 +13,10 @@
     "dev": "concurrent \"npm run client\" \"npm run devserver\""
   },
   "devDependencies": {
+    "concurrently": "^1.0.0",
+    "prettier": "3.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "concurrently": "^1.0.0"
+    "typescript": "^5.2.2"
   },
   "author": "",
   "license": "ISC",

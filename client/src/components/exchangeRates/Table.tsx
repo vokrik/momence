@@ -4,12 +4,12 @@ import {
     useMaterialReactTable,
     type MRT_ColumnDef,
 } from 'material-react-table';
-import {ExchangeRateInfo, PrioritizedRates} from "./exchangeRatesService";
+import type {ExchangeRateInfo} from "./model/exchangeRatesService";
 
 
 
 type Props = {
-    rates: PrioritizedRates
+    rates: Array<ExchangeRateInfo>
 }
 const Table = ({rates}: Props) => {
     //should be memoized or stable
@@ -50,7 +50,7 @@ const Table = ({rates}: Props) => {
         enableDensityToggle: false,
         enableFullScreenToggle: false,
         enableColumnActions: false,
-        data: [...rates.popular, ...rates.other],
+        data: rates,
     });
 
     return <MaterialReactTable table={table} />;
