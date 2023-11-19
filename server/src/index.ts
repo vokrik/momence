@@ -17,11 +17,11 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-// app.use(
-//     "/api/api-docs",
-//     swaggerUi.serve,
-//     swaggerUi.setup(YAML.load(path.join(__dirname, '/apidoc.yml')))
-// );
+app.use(
+  "/api/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(YAML.load(path.join(__dirname, "/apidoc.yml"))),
+);
 app.use("/api/exchange-rates/", exchangeRatesRouter);
 
 app.use(errorHandlerMiddleware);
