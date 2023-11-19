@@ -1,4 +1,11 @@
-import { FormControl, Grid, NativeSelect, TextField } from "@mui/material";
+import styled from "@emotion/styled";
+import {
+  FormControl,
+  Grid,
+  InputLabel,
+  NativeSelect,
+  TextField,
+} from "@mui/material";
 
 import React, { ChangeEventHandler, useCallback, useState } from "react";
 import { NumericFormat } from "react-number-format";
@@ -47,7 +54,7 @@ export function Convertor({ rates }: Props) {
 
   return (
     <Grid data-testid="convertor" container spacing={0}>
-      <Grid item xs={9}>
+      <Grid item xs={6}>
         <NumericFormat
           data-testid="input-czk"
           allowedDecimalSeparators={[",", "."]}
@@ -57,30 +64,23 @@ export function Convertor({ rates }: Props) {
         />
       </Grid>
       <Grid item xs={3}>
-        <TextField disabled fullWidth value={"CZK"} />
-      </Grid>
-
-      <Grid item xs={9}>
         <TextField
-          data-testid={"convertor-result"}
+          variant="standard"
+          label="From"
           disabled
           fullWidth
-          value={
-            (state.amountCzk &&
-              state.rate &&
-              convertToCurrency(state.amountCzk, state.rate).toLocaleString(
-                "cs-CZ",
-                { maximumFractionDigits: 2 },
-              )) ||
-            ""
-          }
+          value={"CZK"}
         />
       </Grid>
       <Grid item xs={3}>
-        <FormControl variant="outlined" fullWidth>
+        <FormControl fullWidth>
+          <InputLabel variant="standard" htmlFor="currency-select">
+            To
+          </InputLabel>
           <NativeSelect
             data-testid="currency-select"
-            variant={"outlined"}
+            id="currency-select"
+            aria-label={"To"}
             value={state.rate?.code}
             onChange={handleCurrencyChange}
           >
@@ -106,6 +106,20 @@ export function Convertor({ rates }: Props) {
           </NativeSelect>
         </FormControl>
       </Grid>
+      <Grid item xs={12} mt={5}>
+        <Result>
+          {state.amountCzk &&
+            state.rate &&
+            convertToCurrency(state.amountCzk, state.rate).toLocaleString(
+              "cs-CZ",
+              {
+                maximumFractionDigits: 2,
+                style: "currency",
+                currency: state.rate.code,
+              },
+            )}
+        </Result>
+      </Grid>
     </Grid>
   );
 }
@@ -115,9 +129,14 @@ function AmountCZKField(props: any) {
     <TextField
       {...props}
       fullWidth
-      label="Amount in CZK"
-      variant="outlined"
+      label="Convert"
+      placeholder={"Enter amount"}
+      variant="standard"
       autoFocus
     />
   );
 }
+
+const Result = styled.div`
+  font-size: 3rem;
+`;

@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useMemo } from "react";
 import {
   MaterialReactTable,
@@ -14,24 +15,29 @@ const Table = ({ rates }: Props) => {
   const columns = useMemo<MRT_ColumnDef<ExchangeRateInfo>[]>(
     () => [
       {
+        accessorKey: "country",
+        header: "Country",
+        size: 50,
+      },
+      {
         accessorKey: "currency",
         header: "Currency",
-        size: 150,
+        size: 50,
       },
       {
         accessorKey: "code",
         header: "Code",
-        size: 200,
+        size: 50,
       },
       {
         accessorKey: "amount",
         header: "Amount",
-        size: 150,
+        size: 50,
       },
       {
         accessorKey: "rate",
         header: "Rate",
-        size: 150,
+        size: 50,
       },
     ],
     [],
@@ -49,6 +55,24 @@ const Table = ({ rates }: Props) => {
     enableFullScreenToggle: false,
     enableColumnActions: false,
     data: rates,
+    muiTableBodyCellProps: {
+      sx: {
+        pl: 3,
+        pr: 3,
+      },
+    },
+    muiTableHeadCellProps: {
+      sx: {
+        pl: 3,
+        pr: 3,
+      },
+    },
+    initialState: { density: "compact" },
+    renderTopToolbarCustomActions: () => (
+      <Typography variant="h4" pl={2}>
+        All rates
+      </Typography>
+    ),
   });
 
   return <MaterialReactTable table={table} />;
