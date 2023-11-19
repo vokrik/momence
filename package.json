@@ -5,10 +5,13 @@
   "scripts": {
     "client": "npm run build-client && cd client && npm start",
     "server": "npm run build-server && cd server && npm start",
+    "test-client": "cd client && npm test -- --watchAll=false",
+    "test-server": "cd server && npm test",
     "devserver": "cd server && npm run dev",
     "build": "npm run build-client && npm run build-server",
     "build-client": "cd client && npm install && npm run build",
     "build-server": "cd server && npm install && npm run build",
+    "test": "npm run test-client && npm run test-server",
     "start": "concurrent \"npm run client\" \"npm run devserver\""
   },
   "devDependencies": {

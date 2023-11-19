@@ -1,5 +1,5 @@
 import CurrencyExchangeOutlined from "@mui/icons-material/CurrencyExchangeOutlined";
-import { Avatar, Box, Container, CssBaseline, Typography } from "@mui/material";
+import { Avatar, Box, Container, Typography } from "@mui/material";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import React from "react";
 import { Convertor } from "./Convertor";

@@ -18,7 +18,7 @@ describe("/exchange-rates", () => {
         .reply(200, successResponseMock);
 
       await supertest(app)
-        .get("/exchange-rates")
+        .get("/api/exchange-rates")
         .expect(200, {
           rates: [
             {
@@ -50,7 +50,7 @@ describe("/exchange-rates", () => {
         .get(DAILY_RATES_PATH)
         .reply(500, "Some error");
 
-      await supertest(app).get("/exchange-rates").expect(503, {
+      await supertest(app).get("/api/exchange-rates").expect(503, {
         message: "Service temporarily unavailable",
       });
     });
@@ -60,7 +60,7 @@ describe("/exchange-rates", () => {
         .get(DAILY_RATES_PATH)
         .reply(200, "Some wrong format");
 
-      await supertest(app).get("/exchange-rates").expect(500, {
+      await supertest(app).get("/api/exchange-rates").expect(500, {
         message: "Something went wrong",
       });
     });

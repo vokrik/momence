@@ -112,7 +112,7 @@ export function Convertor({ rates }: Props) {
         </FormControl>
       </Grid>
       <Grid item xs={12} mt={5}>
-        <Result>
+        <Result data-testid="convertor-result">
           {convertedValue.toLocaleString("cs-CZ", {
             maximumFractionDigits: 2,
             style: "currency",

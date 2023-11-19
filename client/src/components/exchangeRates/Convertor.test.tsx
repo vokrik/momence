@@ -1,6 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, render, screen, within } from "@testing-library/react";
 import { Convertor } from "./Convertor";
 
 describe("Convertor", () => {
@@ -19,6 +19,9 @@ describe("Convertor", () => {
       />,
     );
     expect(screen.getByTestId("convertor")).toBeInTheDocument();
+    expect(
+      within(screen.getByTestId("convertor-result")).getByText("0,00 US$"),
+    ).toBeTruthy(); // 100 / 21.886 = 4.56913095129
   });
   it("does not render when no rates are provided", () => {
     render(<Convertor rates={[]} />);
@@ -41,20 +44,18 @@ describe("Convertor", () => {
     );
 
     const input = screen.getByRole("textbox", {
-      name: /amount in czk/i,
+      name: /convert/i,
     });
 
     act(() => {
       userEvent.type(input, "100");
     });
 
-    const result = within(screen.getByTestId("convertor-result")).getByRole(
-      "textbox",
-    );
-    expect(result).toHaveValue("4,57"); // 100 / 21.886 = 4.56913095129
+    const result = screen.getByTestId("convertor-result");
+    expect(within(result).getByText("4,57 US$")).toBeTruthy(); // 100 / 21.886 = 4.56913095129
   });
 
-  it("splits currencies by popularity ", () => {
+  it("splits currencies by popularity", () => {
     render(
       <Convertor
         rates={[
@@ -109,15 +110,14 @@ describe("Convertor", () => {
     );
 
     const input = screen.getByRole("textbox", {
-      name: /amount in czk/i,
+      name: /convert/i,
     });
     act(() => {
       userEvent.type(input, "100");
     });
-    const result = within(screen.getByTestId("convertor-result")).getByRole(
-      "textbox",
-    );
-    expect(result).toHaveValue("4,57"); // 100 / 21.886 = 4.56913095129
+
+    const result = screen.getByTestId("convertor-result");
+    expect(within(result).getByText("4,57 US$")).toBeTruthy(); // 100 / 21.886 = 4.56913095129
 
     const select = within(screen.getByTestId("currency-select")).getByRole(
       "combobox",
@@ -135,6 +135,6 @@ describe("Convertor", () => {
         .selected,
     ).toBe(true);
 
-    expect(result).toHaveValue("8,13"); // 100 / 12.3 = 8.13008130081
+    expect(within(result).getByText("8,13 HRK")).toBeTruthy(); // 100 / 12.3 = 8.13008130081
   });
 });
