@@ -36,9 +36,8 @@ around features instead of layers to be more readable.
 For some it might be surprising that I am calculating the exchange rates result on every render. I've decided 
 not to memoize the result consciously, because the memoization has it's overhead and it's questionable, if it would bring any benefits.
 
-
-Also, all components seem to be rendering 2 times. I suspect that it's because of react 18's strict mode, but I haven't find time to make sure
-(https://legacy.reactjs.org/docs/strict-mode.html#ensuring-reusable-state) 
+I finished the project and was on the edge if I should split the Convertor into smaller components, but decided to 
+keep them in the file. Would split it later if I found out that the file is getting too big.
 
 For styling, I decided to use the Material UI library. I wasn't sure if I was expected to style everything by hand,
 (if so, I can re-style the app manually), I just found it more productive to use a design system.
@@ -49,6 +48,3 @@ For backend, I've added unit and integration tests. You can run them by running 
 
 For frontend, I've added just unit tests, because for an app of this size, the integration tests might be too much. To run them, run `npm test` in the `client` folder.
 
-I've spent around 9 hours on this project - I think the most time-consuming part was everything but coding :). I spend quite some time with setting up the project & tooling (to be honest, I don't do that every day, so I had to refresh my memory a bit) 
-and deployment to netlify, which I have never worked before and where I got a bit stuck on bundling the apidoc to the lambda function. Overall 
-the coding itself was around 5 hours (including the tests) and it was quite fun.
