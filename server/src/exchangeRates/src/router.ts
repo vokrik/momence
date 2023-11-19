@@ -1,16 +1,14 @@
-import express from 'express'
-import {getExchangeRates} from './exchangeRatesService'
+import express from "express";
+import { getExchangeRates } from "./exchangeRatesService";
 
-const router = express.Router()
+const router = express.Router();
 
+router.get("/", async (req, res, next) => {
+  try {
+    res.json({ rates: await getExchangeRates() });
+  } catch (err) {
+    next(err);
+  }
+});
 
-router.get('/', async (req, res, next) => {
-
-    try {
-        res.json({rates: await getExchangeRates()})
-    } catch (err) {
-        next(err)
-    }
-})
-
-export {router}
+export { router };

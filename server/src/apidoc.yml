@@ -33,7 +33,7 @@ paths:
       summary: Get exchange rates
       description: Get current exchange rates
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -43,4 +43,4 @@ paths:
                   rates:
                     type: array
                     items:
-                      $ref: '#/components/schemas/ExchangeRate'
+                      $ref: "#/components/schemas/ExchangeRate"

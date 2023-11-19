@@ -1,4 +1,1 @@
-
-export default class ExternalResourceUnavailableError extends Error {
-
-}
+export default class ExternalResourceUnavailableError extends Error {}

@@ -1,4 +1,1 @@
-
-export default class DataFormatError extends Error {
-
-}
+export default class DataFormatError extends Error {}
