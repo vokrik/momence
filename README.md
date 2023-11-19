@@ -5,7 +5,14 @@ You can check out the app at:
 https://effervescent-basbousa-225032.netlify.app/
 
 This app also requires a server. You can find it here:
-https://effervescent-basbousa-225032.netlify.app/api/api-doc
+https://effervescent-basbousa-225032.netlify.app/api/exchange-rates
+
+The server has also a documentation, however for some reason it's not working on netlify (I would need to dig in more into why it's not working)
+Locally, you can get it by running
+```
+npm run dev
+```
+from the `server` folder and then going to http://localhost:8080/api/api-docs
 
 For local development run:
 ```

@@ -8,7 +8,7 @@ export default {
   },
   servers: [
     {
-      url: "https://effervescent-basbousa-225032.netlify.app/",
+      url: "https://effervescent-basbousa-225032.netlify.app/api/",
     },
   ],
   components: {
@@ -41,7 +41,7 @@ export default {
     },
   },
   paths: {
-    "/echange-rates": {
+    "/exchange-rates": {
       get: {
         summary: "Get exchange rates",
         description: "Get current exchange rates",
