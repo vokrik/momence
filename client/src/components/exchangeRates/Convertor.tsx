@@ -177,4 +177,5 @@ function Result({ amountCzk, rate }: State) {
 
 const ResultWrapper = styled.div`
   font-size: 3rem;
+  text-align: center;
 `;
