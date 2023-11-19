@@ -68,6 +68,8 @@ const Table = ({ rates }: Props) => {
       },
     },
     initialState: { density: "compact" },
+    enableTableFooter: false,
+    enableBottomToolbar: false,
     renderTopToolbarCustomActions: () => (
       <Typography variant="h4" pl={2}>
         All rates

@@ -9,8 +9,7 @@
     "build": "npm run build-client && npm run build-server",
     "build-client": "cd client && npm install && npm run build",
     "build-server": "cd server && npm install && npm run build",
-    "start": "concurrent \"npm run client\" \"npm run server\"",
-    "dev": "concurrent \"npm run client\" \"npm run devserver\""
+    "start": "concurrent \"npm run client\" \"npm run devserver\""
   },
   "devDependencies": {
     "concurrently": "^1.0.0",

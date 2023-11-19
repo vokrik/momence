@@ -51,6 +51,11 @@ export function Convertor({ rates }: Props) {
   if (!rates.length) {
     return null;
   }
+  const convertedValue =
+    (state.amountCzk &&
+      state.rate &&
+      convertToCurrency(state.amountCzk, state.rate)) ||
+    0.0;
 
   return (
     <Grid data-testid="convertor" container spacing={0}>
@@ -108,16 +113,11 @@ export function Convertor({ rates }: Props) {
       </Grid>
       <Grid item xs={12} mt={5}>
         <Result>
-          {state.amountCzk &&
-            state.rate &&
-            convertToCurrency(state.amountCzk, state.rate).toLocaleString(
-              "cs-CZ",
-              {
-                maximumFractionDigits: 2,
-                style: "currency",
-                currency: state.rate.code,
-              },
-            )}
+          {convertedValue.toLocaleString("cs-CZ", {
+            maximumFractionDigits: 2,
+            style: "currency",
+            currency: state.rate?.code,
+          })}
         </Result>
       </Grid>
     </Grid>

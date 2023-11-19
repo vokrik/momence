@@ -41,7 +41,7 @@ export function Page() {
       </Container>
       <Container component="main" fixed maxWidth={"md"}>
         <CssBaseline />
-        <Container fixed sx={{ mt: 10 }}>
+        <Container fixed sx={{ mt: 10, mb: 10 }}>
           <Table rates={data} />
         </Container>
       </Container>
