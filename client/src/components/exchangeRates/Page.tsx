@@ -14,7 +14,6 @@ export function Page() {
   return (
     <div>
       <Container component="main" fixed maxWidth={"sm"}>
-        <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
@@ -40,7 +39,6 @@ export function Page() {
         </Box>
       </Container>
       <Container component="main" fixed maxWidth={"md"}>
-        <CssBaseline />
         <Container fixed sx={{ mt: 10, mb: 10 }}>
           <Table rates={data} />
         </Container>
