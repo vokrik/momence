@@ -29,7 +29,12 @@ export function Page() {
             Czech Exchange
           </Typography>
 
-          <Typography component="h2" variant="h5" fontWeight={300}>
+          <Typography
+            align="center"
+            component="h2"
+            variant="h5"
+            fontWeight={300}
+          >
             Get the latest exchange rates from Czech Crowns to other major
             currencies
           </Typography>
