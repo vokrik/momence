@@ -19,6 +19,7 @@ For local development run:
 npm build
 npm start
 ```
+in the root folder
 
 ## Comments
 Because of the CORS, I've had to also include a server in this project that proxies the calls to the CNB. Instead of building just a proxy, I've decided to build an adapter that defines its own API. I find this approach better, 
