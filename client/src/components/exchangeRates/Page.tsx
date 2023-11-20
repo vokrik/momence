@@ -25,7 +25,7 @@ export function Page() {
           <Avatar sx={{ mb: 8, mt: 2, bgcolor: "secondary.main" }}>
             <CurrencyExchangeOutlined />
           </Avatar>
-          <Typography component="h1" variant="h2">
+          <Typography align="center" component="h1" variant="h2">
             Czech Exchange
           </Typography>
 
